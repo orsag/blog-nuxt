@@ -1,0 +1,18 @@
+
+$orange: orange;
+$gutter: 20px;
+
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$xl-large: 1200px;
+$xxl-large: 1400px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
