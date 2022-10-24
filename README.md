@@ -2,10 +2,15 @@
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-## Setup
+## Setup Next3 Project
+```bash
+npx nuxi init project-name
+```
 
-npx nuxi init
+## Setup IDE
+bootstrap.min.css added for auto suggestions in IDE
 
+## Install
 Make sure to install the dependencies:
 
 ```bash
