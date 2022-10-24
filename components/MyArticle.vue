@@ -6,7 +6,7 @@ interface MyArticleProps {
   article: Article;
 }
 const props = defineProps<MyArticleProps>();
-const { subtitle, id, imageUrl, title, content } = props.article;
+const { subtitle, imageUrl, title, content } = props.article;
 
 const image = createImgURL(imageUrl);
 </script>

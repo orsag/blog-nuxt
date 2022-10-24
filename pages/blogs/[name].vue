@@ -10,13 +10,7 @@ const detailImage1 = createImgURL("detail1.webp");
 const detailImage2 = createImgURL("detail2.webp");
 
 useHead({
-  title: blog ? name : "Not Found",
-  meta: [
-    {
-      name: "viewport",
-      content: "width=device-width",
-    },
-  ],
+  title: blog ? name as string : "Not Found"
 });
 </script>
 
@@ -25,10 +19,10 @@ useHead({
     <div v-if="blog">
       <div class="container-fluid">
         <div
-          class="detail-top-bar row d-flex justify-content-center align-items-center"
-        >
-          <div class="col-12 offset-md-2 offset-sm-1">
-            <h3>{{ name }}</h3>
+          class="detail-top-bar row d-flex align-items-center"
+        > 
+          <div class="col-auto offset-sm-1">
+            <div class="detail-header">{{ name }}</div>
           </div>
         </div>
       </div>
@@ -73,6 +67,12 @@ useHead({
 .container {
   text-align: center;
 }
+
+.detail-header {
+  display: inline-block;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
 .detail-top-bar {
   background: rgb(255, 211, 211);
   text-align: start;
@@ -103,10 +103,9 @@ useHead({
 @media (max-width: $small) {
   .detail-top-bar {
     height: 5rem;
-
-    h3 {
-      font-size: 1rem;
-    }
+  }
+  .detail-header {
+      font-size: 1.25rem;
   }
 }
 </style>
