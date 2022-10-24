@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     ],
     script: [
       {
-        src: "https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        src: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       }
     ]
   },
