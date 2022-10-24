@@ -1,13 +1,21 @@
+<script setup lang="ts">
+  import { createImgURL } from "@/helpers";
+
+  const icon = createImgURL('free-sad-face-icon.png');
+</script>
+
 <template>
   <div class="d-flex flex-column justify-content-center align-items-center">
-    <slot name="header"></slot>
+    <div name="header">Page not found</div>
     <div>
       <img
-        src="https://www.iconpacks.net/icons/2/free-sad-face-icon-2691-thumb.png"
-        alt=""
+        :src="icon"
+        alt="sad face"
       />
     </div>
-    <slot name="redirectEl" />
+    <NuxtLink class="text-muted text-primary" :to="`/blogs`">
+      Go to listing
+    </NuxtLink>
   </div>
 </template>
 

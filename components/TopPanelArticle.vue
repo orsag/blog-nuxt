@@ -1,23 +1,29 @@
 <script setup lang="ts">
 import { Article } from "@/interfaces";
+import { createImgURL } from "@/helpers";
 
 interface MyArticleProps {
   article: Article;
 }
-const props = defineProps<MyArticleProps>()
-const { subtitle, id, imageUrl, title } = props.article
+const props = defineProps<MyArticleProps>();
+const { subtitle, imageUrl, title } = props.article;
+const image = createImgURL(imageUrl);
 </script>
 
 <template>
   <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 card-wrapper">
     <article class="card">
-      <img :src="imageUrl" class="card-img top-panel-image" />
+      <img :src="image" class="card-img top-panel-image" />
       <div class="card-img-overlay d-flex flex-column">
         <div class="h-50"></div>
-        <div class="h-50 d-flex flex-column justify-content-center align-items-center my-card-content">
+        <div
+          class="h-50 d-flex flex-column justify-content-center align-items-center my-card-content"
+        >
           <p class="card-subtitle text-light text-uppercase">{{ subtitle }}</p>
           <h3 class="h3 text-light">{{ title }}</h3>
-          <NuxtLink :to="`/blogs/${title}`" class="btn btn-outline-light">Read More</NuxtLink>
+          <NuxtLink :to="`/blogs/${title}`" class="btn btn-outline-light"
+            >Read More</NuxtLink
+          >
         </div>
       </div>
     </article>
@@ -31,8 +37,8 @@ const { subtitle, id, imageUrl, title } = props.article
   margin-top: 1rem;
 }
 
-.my-card-content p, 
-.my-card-content h3, 
+.my-card-content p,
+.my-card-content h3,
 .my-card-content div {
   margin: 1rem 0;
 }
@@ -67,7 +73,7 @@ const { subtitle, id, imageUrl, title } = props.article
 
 @media (max-width: $xl-large) {
   .h3 {
-    font-size: calc(0.9rem + .6vw);
+    font-size: calc(0.9rem + 0.6vw);
   }
 }
 </style>

@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import {
-  FLOWERS1,
-  FLOWERS2,
-  PARAGRAPH1,
-  PARAGRAPH2,
-  PARAGRAPH3,
-  PARAGRAPH4,
-} from "@/interfaces";
+import { PARAGRAPH1, PARAGRAPH2, PARAGRAPH3, PARAGRAPH4 } from "@/constants";
+import { createImgURL } from "@/helpers";
 import articles from "@/data.json";
 
 const route = useRoute();
 const name = route.params.name;
 const blog = articles.find((r) => r.title === name);
+const detailImage1 = createImgURL("detail1.webp");
+const detailImage2 = createImgURL("detail2.webp");
 
 useHead({
   title: blog ? name : "Not Found",
@@ -38,7 +34,7 @@ useHead({
       </div>
 
       <div class="container">
-        <img :src="FLOWERS1" class="img-fluid detail-image" alt="flowers" />
+        <img :src="detailImage1" class="img-fluid detail-image" alt="flowers" />
         <div class="row">
           <div class="col-12 text-start">
             <p>{{ PARAGRAPH1 }}</p>
@@ -46,7 +42,11 @@ useHead({
             <div class="alert alert-warning detail-alert-text">
               <p>{{ PARAGRAPH3 }}</p>
             </div>
-            <img :src="FLOWERS2" class="img-fluid detail-image" alt="flowers" />
+            <img
+              :src="detailImage2"
+              class="img-fluid detail-image"
+              alt="flowers"
+            />
             <p>{{ PARAGRAPH4 }}</p>
           </div>
         </div>
@@ -100,9 +100,8 @@ useHead({
   justify-content: center;
 }
 
-
 @media (max-width: $small) {
-  .detail-top-bar  {
+  .detail-top-bar {
     height: 5rem;
 
     h3 {
